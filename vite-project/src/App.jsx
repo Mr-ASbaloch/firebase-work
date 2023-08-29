@@ -1,6 +1,7 @@
 
 import './App.css'
-import SignUp from './practical-work/App'
+import SignUp from './practical-work/SignUp-form/SignUp'
+
 
 function App() {
  
