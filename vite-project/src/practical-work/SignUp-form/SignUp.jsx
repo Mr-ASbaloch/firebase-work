@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { auth } from "../../../firebase/firebase";
 import { createUserWithEmailAndPassword, updateProfile ,GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { message } from "antd";
 const provider =new GoogleAuthProvider ()
 
 const SignUp = () => {
@@ -11,13 +12,18 @@ const SignUp = () => {
   const registerUser = async () => {
     if (!email || !password || !name) return;
     try {
-      const user = await createUserWithEmailAndPassword(auth, email, password ,updateProfile);
+      const user = await createUserWithEmailAndPassword(auth, email, password ,updateProfile)
       await updateProfile (auth.currentUser, {
         displayName:name
+       
+      }).then(()=>{
+        console.log(user);
+        message.success("registered")
       })
-      console.log(user);
-    } catch (error) {
     
+   
+    } catch (error) {
+      
       console.log("something error  occured ", error);
     
     }
