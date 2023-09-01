@@ -16,7 +16,7 @@ const SignUp = () => {
       await updateProfile (auth.currentUser, {
         displayName:name
        
-      }).then(()=>{
+      }).then(()=>{ 
         console.log(user);
         message.success("registered")
       })
