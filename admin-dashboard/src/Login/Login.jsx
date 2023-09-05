@@ -46,7 +46,8 @@ const LogIN = () => {
           onChange={(e) => {
             setEmail(e.target.value);
           }}
-          className="w-1/2 flex mx-auto bg-[#fafafa] text-black text-center  p-1"
+          className="w-[80%] lg:w-[50%] flex mx-auto bg-[#fafafa]  text-black text-center outline-none p-2 rounded-md"
+     
         />
         <label htmlFor="password" className="ml-[25%] text-xl mb-3 mt-3  ">
           {" "}
@@ -59,7 +60,7 @@ const LogIN = () => {
           onChange={(e) => {
             setPassword(e.target.value);
           }}
-          className="w-1/2 flex mx-auto bg-[#fafafa] text-black text-center p-1 "
+          className="w-[80%] lg:w-[50%] flex mx-auto bg-[#fafafa]  text-black text-center outline-none p-2 rounded-md"
         />
         <button className="bg-[#2c5d63] mt-5 p-1   mx-auto w-2/4 px-1 md:p-2 md:w-1/4  rounded-md capitalize font-semibold hover:bg-[#9896f1] text-white">
           {" "}

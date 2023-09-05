@@ -26,17 +26,22 @@ const SignUp = () => {
         password,
         updateProfile
       );
+
       await updateProfile(auth.currentUser, {
         displayName: name,
-      }).then(() => {
-        console.log(user);
-        message.success("registered");
-       
-      });
+      })
+        .then(() => {
+          console.log(user);
+          message.success(" successfully registered");
+        })
+        .catch((error) => {
+          alert(error);
+        });
     } catch (error) {
       console.log("something error  occured ", error);
     }
   };
+
   const signINWIthGoogle = async () => {
     const user = await signInWithPopup(auth, provider);
     console.log(user);
@@ -64,7 +69,6 @@ const SignUp = () => {
         <input
           type="text"
           required
-        
           onChange={(e) => {
             setName(e.target.value);
           }}
@@ -79,11 +83,10 @@ const SignUp = () => {
         <input
           type="email"
           required
-        
           onChange={(e) => {
             setEmail(e.target.value);
           }}
-          className="w-[80%] lg:w-[50%] flex mx-auto bg-[#fafafa] outline-none p-2 rounded-md text-black text-center  p-1"
+          className="w-[80%] lg:w-[50%] flex mx-auto bg-[#fafafa] outline-none p-2 rounded-md text-black text-center  "
         />
         <label
           htmlFor="user password"
@@ -94,24 +97,27 @@ const SignUp = () => {
         <input
           type="password"
           required
-         
           onChange={(e) => {
             setPassword(e.target.value);
           }}
-          className="w-[80%] lg:w-[50%] flex mx-auto outline-none p-2 rounded-md bg-[#fafafa] text-black text-center  p-1"
+          className="w-[80%] lg:w-[50%] flex mx-auto outline-none rounded-md bg-[#fafafa] text-black text-center  p-2"
         />
         <button
           onClick={registerUser}
           className="bg-[#6643b5] mt-5 p-2  mx-auto w-2/4 px-3  lg:w-1/4 rounded-sm capitalize font-semibold hover:bg-[#9896f1] text-white"
         >
           {" "}
-          Create account    
+          Create account
         </button>
-      <div className='flex mx-auto mt-5'>  <span>Already have account ! </span > <Link to='/' className='text-blue-400 ml-3'> Login </Link></div>
- 
-      
-     </form>
-    
+        <div className="flex mx-auto mt-5">
+          {" "}
+          <span>Already have account ! </span>{" "}
+          <Link to="/" className="text-blue-400 ml-3">
+            {" "}
+            Login{" "}
+          </Link>
+        </div>
+      </form>
     </div>
   );
 };
