@@ -3,22 +3,28 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 
 const LogIN = () => {
-    
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
- 
+  const handleLogIn = (e) => {
+    e.preventDefault();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        alert("successfully login");
+        // ...
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  };
+
   return (
     <>
       <h1>SignIN</h1>
-      <form
-        style={{ width: "300px " }}
-        onSubmit={(e) => {
-          e.preventDefault();
-        }}
-      >
-        <label htmlFor="user name">user name</label>
-
+      <form onSubmit={handleLogIn}>
         <label htmlFor="user email">user email</label>
         <input
           type="email"
@@ -37,8 +43,7 @@ const LogIN = () => {
             setPassword(e.target.value);
           }}
         />
-        <button > submit</button>
-    
+        <button> submit</button>
       </form>
     </>
   );
