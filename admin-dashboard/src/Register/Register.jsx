@@ -53,7 +53,7 @@ const SignUp = () => {
         onSubmit={(e) => {
           e.preventDefault();
         }}
-        className="text-[#00204a] rounded-md font-semibold bg-[#eeeeee] h-[400px] mx-auto  justify-center  w-[90%] lg:w-[50%]  flex flex-col "
+        className="text-[#00204a] rounded-md font-semibold bg-gradient-to-t from-gray-200 via-blue-100 to-pink-100 h-[400px] mx-auto  justify-center  w-[90%] lg:w-[50%]  flex flex-col "
       >
         <label
           htmlFor="user name"
@@ -64,11 +64,11 @@ const SignUp = () => {
         <input
           type="text"
           required
-          placeholder="your name"
+        
           onChange={(e) => {
             setName(e.target.value);
           }}
-          className="w-[80%] lg:w-[50%] flex mx-auto bg-[#fafafa] text-black text-center  p-1"
+          className="w-[80%] lg:w-[50%] flex mx-auto bg-[#fafafa]  text-black text-center outline-none p-2 rounded-md"
         />
         <label
           htmlFor="user email"
@@ -79,11 +79,11 @@ const SignUp = () => {
         <input
           type="email"
           required
-          placeholder="your email"
+        
           onChange={(e) => {
             setEmail(e.target.value);
           }}
-          className="w-[80%] lg:w-[50%] flex mx-auto bg-[#fafafa] text-black text-center  p-1"
+          className="w-[80%] lg:w-[50%] flex mx-auto bg-[#fafafa] outline-none p-2 rounded-md text-black text-center  p-1"
         />
         <label
           htmlFor="user password"
@@ -94,20 +94,20 @@ const SignUp = () => {
         <input
           type="password"
           required
-          placeholder="your password"
+         
           onChange={(e) => {
             setPassword(e.target.value);
           }}
-          className="w-[80%] lg:w-[50%] flex mx-auto bg-[#fafafa] text-black text-center  p-1"
+          className="w-[80%] lg:w-[50%] flex mx-auto outline-none p-2 rounded-md bg-[#fafafa] text-black text-center  p-1"
         />
         <button
           onClick={registerUser}
-          className="bg-[#272343] mt-5 p-2  mx-auto w-2/4 px-3  lg:w-1/4 rounded-sm capitalize font-semibold hover:bg-[#9896f1] text-white"
+          className="bg-[#6643b5] mt-5 p-2  mx-auto w-2/4 px-3  lg:w-1/4 rounded-sm capitalize font-semibold hover:bg-[#9896f1] text-white"
         >
           {" "}
-          submit
+          Create account    
         </button>
-        <span>Already have account ! </span > <Link to='/login'> Login </Link>
+      <div className='flex mx-auto mt-5'>  <span>Already have account ! </span > <Link to='/' className='text-blue-400 ml-3'> Login </Link></div>
  
       
      </form>

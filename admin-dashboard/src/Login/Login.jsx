@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { message } from "antd";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 
 const LogIN = () => {
   const [email, setEmail] = useState("");
@@ -30,11 +30,11 @@ const LogIN = () => {
   };
 
   return (
-    <div>
+    <div className='mt-28'>
       <form
         onSubmit={handleLogIn}
-        className="text-[#00204a] rounded-md font-semibold bg-[#eeeeee] h-[400px] mx-auto mt-32 justify-center  w-2/5 flex flex-col "
-      >
+        className="text-[#00204a] shadow-md rounded-md font-semibold bg-gradient-to-r from-gray-100 to-gray-300 h-[400px] mx-auto  justify-center  w-[90%] lg:w-[50%]  flex flex-col "
+        >
         <label htmlFor="user email" className="ml-[25%] mb-3 text-xl">
           {" "}
           Email :
@@ -48,7 +48,7 @@ const LogIN = () => {
           }}
           className="w-1/2 flex mx-auto bg-[#fafafa] text-black text-center  p-1"
         />
-        <label htmlFor="password" className="ml-[25%] text-xl mb-3 mt-3 ">
+        <label htmlFor="password" className="ml-[25%] text-xl mb-3 mt-3  ">
           {" "}
           Password:
         </label>
@@ -61,10 +61,13 @@ const LogIN = () => {
           }}
           className="w-1/2 flex mx-auto bg-[#fafafa] text-black text-center p-1 "
         />
-        <button className="bg-[#272343] mt-5 p-2  mx-auto w-1/4 px-3  rounded-full capitalize font-semibold hover:bg-[#9896f1] text-white">
+        <button className="bg-[#2c5d63] mt-5 p-1   mx-auto w-2/4 px-1 md:p-2 md:w-1/4  rounded-md capitalize font-semibold hover:bg-[#9896f1] text-white">
           {" "}
-          submit
+          login
         </button>
+        <div className='flex mx-auto mt-5'>  <span>Don't have account ! </span > <Link to='/signup' className='text-[#f70776] ml-3'> Register Here </Link></div>
+ 
+      
       </form>
     </div>
   );
