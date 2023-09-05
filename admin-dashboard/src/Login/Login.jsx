@@ -8,14 +8,16 @@ const LogIN = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+
+  const navigate =useNavigate ()
   const handleLogIn = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user);
         message.success("Successfully login");
+       navigate ('/home ')
         setEmail("");
         setPassword("");
 
@@ -28,11 +30,10 @@ const LogIN = () => {
   };
 
   return (
-    <>
-      <h1>SignIN</h1>
+    <div>
       <form
         onSubmit={handleLogIn}
-        className="text-[#00204a] font-semibold bg-[#eeeeee] h-2/3 mx-auto mt-32 justify-center  w-2/5 flex flex-col "
+        className="text-[#00204a] font-semibold bg-[#eeeeee] h-[400px] mx-auto mt-32 justify-center  w-2/5 flex flex-col "
       >
         <label htmlFor="user email" className="ml-[25%] mb-3 text-xl">
           {" "}
@@ -65,7 +66,7 @@ const LogIN = () => {
           submit
         </button>
       </form>
-    </>
+    </div>
   );
 };
 
