@@ -6,8 +6,8 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
-import { message } from "antd";
-import { useNavigate } from "react-router-dom";
+import { Button, message } from "antd";
+import { Link, useNavigate } from "react-router-dom";
 const provider = new GoogleAuthProvider();
 
 const SignUp = () => {
@@ -31,7 +31,7 @@ const SignUp = () => {
       }).then(() => {
         console.log(user);
         message.success("registered");
-        navigate('/login')
+       
       });
     } catch (error) {
       console.log("something error  occured ", error);
@@ -53,7 +53,7 @@ const SignUp = () => {
         onSubmit={(e) => {
           e.preventDefault();
         }}
-        className="text-[#00204a] font-semibold bg-[#eeeeee] h-[400px] mx-auto  justify-center  w-[90%] lg:w-[50%]  flex flex-col "
+        className="text-[#00204a] rounded-md font-semibold bg-[#eeeeee] h-[400px] mx-auto  justify-center  w-[90%] lg:w-[50%]  flex flex-col "
       >
         <label
           htmlFor="user name"
@@ -107,8 +107,11 @@ const SignUp = () => {
           {" "}
           submit
         </button>
-        <button onClick={signINWIthGoogle}> signIn with google</button>
-      </form>
+        <span>Already have account ! </span > <Link to='/login'> Login </Link>
+ 
+      
+     </form>
+    
     </div>
   );
 };

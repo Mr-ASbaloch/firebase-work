@@ -33,7 +33,7 @@ const LogIN = () => {
     <div>
       <form
         onSubmit={handleLogIn}
-        className="text-[#00204a] font-semibold bg-[#eeeeee] h-[400px] mx-auto mt-32 justify-center  w-2/5 flex flex-col "
+        className="text-[#00204a] rounded-md font-semibold bg-[#eeeeee] h-[400px] mx-auto mt-32 justify-center  w-2/5 flex flex-col "
       >
         <label htmlFor="user email" className="ml-[25%] mb-3 text-xl">
           {" "}
