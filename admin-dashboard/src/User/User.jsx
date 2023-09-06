@@ -13,12 +13,14 @@ const [country, setCountry] =useState ("")
 
     const handleData = async(e)=>{
         e.preventDefault()
-    const data= await setDoc(doc(db, "cities", "LA"), {
-    name: "Los Angeles",
-    state: "CA",
-    country: "USA"
+   await setDoc(doc(db, "user", "LA"), {
+    name: name,
+    state: country,
+    country: address,
+    email :email,
+    password :password
   });
-  console.log(data);
+
     }
   return (
     <div>
