@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { message } from "antd";
 import { useNavigate,Link } from "react-router-dom";
+import { AuthContext } from "../Context/AuthContext";
 
 const LogIN = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  
+  const {dispatch} = useContext (AuthContext)
 
   const navigate =useNavigate ()
   const handleLogIn = (e) => {
@@ -16,6 +18,7 @@ const LogIN = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+        dispatch (  {type :"LOGIN" , payload:user})
         message.success("Successfully login");
        navigate ('/home ')
         setEmail("");

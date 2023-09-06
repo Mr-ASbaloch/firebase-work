@@ -1,7 +1,5 @@
 import React from "react";
 
-import React from "react";
-
 const AuthReducer = (state, action) => {
   switch (action.type) {
     case "LOGIN": {
