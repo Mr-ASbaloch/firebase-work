@@ -6,7 +6,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import SignUp from "./Register/Register";
 
 function App() {
-  const currentUser =false;
+  const currentUser =true;
 
   const RequireAuth =  ({children})=>{
   return currentUser ?  children : <Navigate to="/ "/>
